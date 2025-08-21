@@ -26,15 +26,42 @@ function restartApp(){    //function to clear all the variables and reset the ap
     wizardry = 0;
     document.getElementById("amigo").value = "";//clear textbox
     document.getElementById("amigo").focus();//show cursor in textbox
-    document.getElementById("friend-list").innerHTML = "";//clear the list of friends
-    document.getElementById("result").innerHTML = "";//clear the sorting result
+    document.getElementById("listaAmigos").innerHTML = "";//clear the list of friends
+    document.getElementById("resultado").innerHTML = "";//clear the sorting result
+    return; //exit the function
 }
 
-function MainApp(){
-
+function agregarAmigo(){ //function to add a friend to the list
+    let friend = document.getElementById("amigo").value; //get the value of the textbox
+    if(friend === ""){ //if the textbox is empty
+        console.log("Empty name field!"); //log the event
+        alert("Ingrese un nombre!"); //alert the user
+        document.getElementById("amigo").focus(); //show cursor in textbox
+        return; //exit the function
+    }
+    if(friends.includes(friend)){ //if the name is already in the list
+        alert("Este nombre ya se encuentra en la lista."); //alert the user
+        console.log("Name already in the list!"); //log the event
+        document.getElementById("amigo").value = ""; //clear the textbox
+        document.getElementById("amigo").focus(); //show cursor in textbox
+        return; //exit the function
+    }
+    if(friend.toLowerCase() === "reiniciar"){ //if the user wants to restart the app | to lower case means to convert all text in the field to lowercase, to make it match with "restart"
+        restartApp(); //call the restart function
+        return; //exit the function
+    }
+    console.log(`Adding friend: ${friend}`); //log the event
+    friends.push(friend); //add the name to the array
+    document.getElementById("listaAmigos").innerHTML = friends.join("<br>"); //update the list of friends in the HTML
+    /*
+    remember, use "document" before any call for modification of the HTML
+    */
+    document.getElementById("amigo").value = ""; //clear the textbox
+    document.getElementById("amigo").focus(); //show cursor in textbox
 }
+
+
 
 // Execution
-for(;;){
-    if
-}
+//since the app is based mainly on functions called in the html file, there's no need to call any function here.
+document.getElementById("amigo").focus(); //show cursor in textbox
