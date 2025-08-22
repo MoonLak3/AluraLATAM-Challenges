@@ -69,7 +69,7 @@ function sortearAmigo(){
         return;
     }
     wizardry = rndm(goobers); //call randomizer function
-    console.log(`Magic number for this iteration is $(wizardry)!`);
+    console.log(`Magic number for this iteration is ${wizardry}!`);
     document.getElementById("resultado").innerHTML = friends[wizardry]; //push the results of the sorter into the website
     return;
 
