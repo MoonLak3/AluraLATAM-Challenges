@@ -15,7 +15,7 @@ let wizardry = 0; //integer dedicated to store the randomized number
 // Functions
 function rndm(samplevalue){//function to generate a random number
     console.log(`sorting...`);
-    let innerndm = Math.floor(Math.random() * samplevalue); //random number between 1 and user's inputted value
+    const innerndm = Math.floor(Math.random() * samplevalue); //random number between 0 and user's inputted value
     console.log(`User wizardry value: ${wizardry}`); 
     return innerndm; //return the random number
 }
@@ -33,7 +33,7 @@ function restartApp(){    //function to clear all the variables and reset the ap
 }
 
 function agregarAmigo(){ //function to add a friend to the list
-    let friend = document.getElementById("amigo").value; //get the value of the textbox
+    let friend = document.getElementById("amigo").value.trim(); //get the value of the textbox
     if(friend === ""){ //if the textbox is empty
         console.log("Empty name field!"); //log the event
         alert("Ingrese un nombre!"); //alert the user
@@ -70,7 +70,7 @@ function sortearAmigo(){
     }
     wizardry = rndm(goobers); //call randomizer function
     console.log(`Magic number for this iteration is ${wizardry}!`);
-    document.getElementById("resultado").innerHTML = friends[wizardry]; //push the results of the sorter into the website
+    document.getElementById("resultado").innerHTML = `Amigo secreto: <strong>${friends[wizardry]}</strong>`; //push the results of the sorter into the website | use tags strong and b to add weight to the text, while aiding TTS engines and screen readers
     return;
 
 }
