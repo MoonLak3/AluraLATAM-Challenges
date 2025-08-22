@@ -61,16 +61,16 @@ function agregarAmigo(){ //function to add a friend to the list
     document.getElementById("amigo").focus(); //show cursor in textbox
 }
 function sortearAmigo(){
-    goobers = friends.length;
-    if (goobers === 1){
+    goobers = friends.length; //retrieve amount of names on list
+    if (goobers === 0){ //if there's no friends...
         alert(`Ingrese amigos en la lista!`);
         console.log(`Not enough names to sort! Add names via the textbox`);
-        document.getElementById("amigo").focus();
+        document.getElementById("amigo").focus(); //we don't proceed any further, and quit the function after alerting the user
         return;
     }
-    wizardry = rndm(goobers);
+    wizardry = rndm(goobers); //call randomizer function
     console.log(`Magic number for this iteration is $(wizardry)!`);
-    document.getElementById("resultado").innerHTML = friends[wizardry];
+    document.getElementById("resultado").innerHTML = friends[wizardry]; //push the results of the sorter into the website
     return;
 
 }
