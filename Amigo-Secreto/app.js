@@ -14,7 +14,8 @@ let wizardry = 0; //integer dedicated to store the randomized number
 
 // Functions
 function rndm(samplevalue){//function to generate a random number
-    let innerndm = Math.floor(Math.random() * samplevalue) + 1; //random number between 1 and user's inputted value
+    console.log(`sorting...`);
+    let innerndm = Math.floor(Math.random() * samplevalue); //random number between 1 and user's inputted value
     console.log(`User wizardry value: ${wizardry}`); 
     return innerndm; //return the random number
 }
@@ -59,9 +60,23 @@ function agregarAmigo(){ //function to add a friend to the list
     document.getElementById("amigo").value = ""; //clear the textbox
     document.getElementById("amigo").focus(); //show cursor in textbox
 }
+function sortearAmigo(){
+    goobers = friends.length;
+    if (goobers === 1){
+        alert(`Ingrese amigos en la lista!`);
+        console.log(`Not enough names to sort! Add names via the textbox`);
+        document.getElementById("amigo").focus();
+        return;
+    }
+    wizardry = rndm(goobers);
+    console.log(`Magic number for this iteration is $(wizardry)!`);
+    document.getElementById("resultado").innerHTML = friends[wizardry];
+    return;
 
+}
 
 
 // Execution
 //since the app is based mainly on functions called in the html file, there's no need to call any function here.
 document.getElementById("amigo").focus(); //show cursor in textbox
+
